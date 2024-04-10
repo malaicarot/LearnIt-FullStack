@@ -1,0 +1,204 @@
+.landing {
+	position: relative;
+	background: url('./assets/d6a692fc1e0489955e2b4ed4ae742c76.jpg') no-repeat center center/cover;
+	height: 100vh;
+	/* width: 100vh; */
+	/* background-size: 100% 100%; */
+}
+
+.dark-overlay {
+	background-color: rgba(0, 0, 0, 0.3);
+	height: 100%;
+}
+
+.landing-inner {
+	height: 100%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.landing-inner form {
+	width: 30%;
+}
+
+.landing-inner h1,
+.landing-inner h4,
+.landing-inner p {
+	color: white;
+}
+
+.form-group {
+	padding-bottom: 10px;
+}
+
+
+.nav-menu {
+	top: 0;
+	position: fixed;
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+	font-size: 20px;
+	
+}
+
+/* Floating add button */
+.btn-floating {
+	position: fixed;
+	right: 3rem;
+	bottom: 3rem;
+	background: #78c2ad;
+	border: none;
+}
+
+.btn-floating:hover {
+	opacity: 0.9;
+}
+
+.btn-floating:focus,
+.btn-floating:active {
+	outline: none;
+	background: transparent;
+	border: none;
+	box-shadow: none;
+}
+
+/* Add new post tooltip */
+.tooltip {
+	/* background: transparent; */
+}
+
+.tooltip .arrow::before {
+	border-left-color: #78c2ad;
+}
+
+
+
+.logo{
+	padding-left: 10px;
+}
+.logo img {
+	width: 80px;
+	border: none;
+	border-radius: 20px;
+	box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.tooltip-inner {
+	background: #78c2ad;
+}
+
+
+/*NavBar*/
+.upload-nav{
+	
+	/* display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center; */
+	
+}
+
+.upload-nav button{
+	background-color: rgb(120,194,173);	
+	border: 3.5px solid white;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+
+.upload-nav button :hover{
+	border:  #08543e;
+	
+}
+
+.upload-nav button :active{
+	opacity: 0.7;
+	transform: translateY(6px);
+}
+
+.upload-nav input{
+	border: none;
+	/* width: 28%; */
+	/* width: 200px; */
+	
+}
+
+
+.upload-nav SVG{
+	color: white;
+	transition: 0.5s ;
+}
+
+.upload-nav SVG:hover{
+	color: #08543e;
+}
+
+.upload-nav SVG:active{
+	opacity: 0.7;
+	/* box-shadow: 0 5px #666; */
+	transform: translateY(6px);
+}
+
+.input-file{
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+	
+}
+
+.input-file + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+	transition: 0.75s;
+}
+
+.input-file + label:hover {
+    color: #08543e;
+	
+}
+
+
+/* Card */
+
+.card{
+	height: 140px;
+	border: 5px solid;
+}
+
+.row-learn{
+	padding-top: 100px;
+}
+
+
+/*button CRUD*/
+
+.func-button{
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 10px
+}
+
+
+.post-button{
+	transition: 0.5s;
+
+}
+
+.post-button:active{
+	opacity: 0.7;
+	transform: translateY(4px) ;
+}
