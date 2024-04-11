@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { PostContext } from "../../contexts/PostContext";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
@@ -32,10 +32,16 @@ const DashBoard = () => {
     },
   } = useContext(AuthContext);
 
+  const hasMounted = useRef(false);
 
   useEffect(() => {
-    getAll();
-  }, []);
+    if (!hasMounted.current) {
+      getAll();
+      console.log("Component mounted for the first time");
+      hasMounted.current = true;
+    } else {
+    }
+  });
 
   let body;
 
@@ -50,7 +56,13 @@ const DashBoard = () => {
     );
   } else if (posts.length === 0) {
     body = (
-      <div style={{background: `url(${background}) no-repeat center center/cover`, height: "100vh"}} className="row-learn">
+      <div
+        style={{
+          background: `url(${background}) no-repeat center center/cover`,
+          height: "100vh",
+        }}
+        className="row-learn"
+      >
         <Card className="text-center my-3 mx-5">
           <Card.Header>Hi {userName}!</Card.Header>
           <Card.Body>
@@ -71,7 +83,15 @@ const DashBoard = () => {
     );
   } else {
     body = (
-      <div style={{background: `url(${background}) no-repeat center center/cover`, backgroundAttachment: "fixed", backgroundClip: "border-box", backgroundSize: "100%", height: "100vh"}}>
+      <div
+        style={{
+          background: `url(${background}) no-repeat center center/cover`,
+          backgroundAttachment: "fixed",
+          backgroundClip: "border-box",
+          backgroundSize: "100%",
+          height: "100vh",
+        }}
+      >
         <Row className="row-cols-1 row-cols-md-3 g-4 mx-auto mt-3 row-learn">
           {posts.map((post) => (
             <Col key={post._id} className="my-2">
@@ -80,7 +100,11 @@ const DashBoard = () => {
           ))}
         </Row>
         {/* OPEN ADD POST MODAL */}
-        <OverlayTrigger placement="left" overlay={<Tooltip>Add New</Tooltip>} className="tooltip">
+        <OverlayTrigger
+          placement="left"
+          overlay={<Tooltip>Add New</Tooltip>}
+          className="tooltip"
+        >
           <Button
             className="btn-floating"
             onClick={setShowPostModal.bind(this, true)}
@@ -91,8 +115,6 @@ const DashBoard = () => {
       </div>
     );
   }
-
-
 
   return (
     <>
