@@ -20,12 +20,16 @@ const NavbarMenu = () => {
     upload,
   } = useContext(AuthContext);
   const [selectedFile, setSelectedFile] = useState();
-  const [isSelected, setIsSelected] = useState(false);
-  const logoutHandler = () => logout();
+  // const [isSelected, setIsSelected] = useState(false);
+  
+  const logoutHandler = () => {
+    logout();
+    window.location.reload()
+  }
 
   const onUploadChange = (event) => {
     setSelectedFile(event.target.files[0]);
-    setIsSelected(true);
+    // setIsSelected(true);
   };
 
   const handleUploadSubmit = () => {

@@ -62,7 +62,6 @@
 .btn-floating:focus,
 .btn-floating:active {
 	outline: none;
-	background: transparent;
 	border: none;
 	box-shadow: none;
 }

@@ -8,9 +8,11 @@ import { UserService } from "../service/user.service.js";
 const checkLoginState = async(req, res) =>{
    try {
       const userId = req.userId;
-      res.json({success: true, user: await UserService.checkLoginState(userId)})
+      console.log(userId)
+      res.json(await UserService.checkLoginState(userId))
       
    } catch (error) {
+     
       console.log('Error while check!');
       res.json({success: false, msg: error.message});
    }

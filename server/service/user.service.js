@@ -9,12 +9,14 @@ dotenv.config();
 const salt = await bcrypt.genSalt(10);
 
 const checkLoginState = async(userId) => {
-  const user = UserModel.findById(userId).select('-passWord')
+  const user = await UserModel.findById(userId).select('-passWord')
+  
+
   if(!user){
     throw new Error({success: false})
   }
 
-  return  user;
+  return  {success: true, user: user};
 }
 
 

@@ -31,7 +31,7 @@ const DashBoard = () => {
       user: { userName, background },
     },
   } = useContext(AuthContext);
-  console.log(background)
+
 
   useEffect(() => {
     getAll();
@@ -71,7 +71,7 @@ const DashBoard = () => {
     );
   } else {
     body = (
-      <div style={{background: `url(${background}) no-repeat center center/cover`, height: "100%"}}>
+      <div style={{background: `url(${background}) no-repeat center center/cover`, backgroundAttachment: "fixed", backgroundClip: "border-box", backgroundSize: "100%", height: "100vh"}}>
         <Row className="row-cols-1 row-cols-md-3 g-4 mx-auto mt-3 row-learn">
           {posts.map((post) => (
             <Col key={post._id} className="my-2">

@@ -30,7 +30,8 @@ const AuthContextProvider = ({ children }) => {
             user: response.data.user,
           },
         });
-      } else {
+      }
+      else {
         dispatch({
           type: "SET_AUTH",
           payload: {
@@ -61,12 +62,12 @@ const AuthContextProvider = ({ children }) => {
     try {
       const response = await axios.post(`${API_URL}/users/login`, userForm);
 
-      if (response.data.success) {
+      if (response.data.success)
         localStorage.setItem(
           LOCAL_STORAGE_TOKEN_NAME,
           response.data.access_token
         );
-      }
+        
       await loadUser();
 
       return response.data;
@@ -86,14 +87,6 @@ const AuthContextProvider = ({ children }) => {
         registerForm
       );
 
-      // if (response.data.success) {
-
-      //   // localStorage.setItem(
-      //   //   LOCAL_STORAGE_TOKEN_NAME,
-      //   //   response.data.access_token
-      //   // );
-      // }
-      // await loadUser();
       return response.data;
     } catch (error) {
       if (error.response.data) {

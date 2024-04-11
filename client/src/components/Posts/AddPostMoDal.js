@@ -12,7 +12,7 @@ const AddPostMoDal = () => {
     url: "",
     status: "TO LEARN",
   });
-  const { title, description, url, status } = newPost;
+  const { title, description, url } = newPost;
 
   const onChangeNewPostFrom = (event) => {
     setNewPost({ ...newPost, [event.target.name]: event.target.value });

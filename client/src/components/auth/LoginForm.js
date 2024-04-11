@@ -1,16 +1,13 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext.js";
 import AlertMessage from "../Layout/AlertMessage.js";
 const LoginForm = () => {
   //context
   const { login } = useContext(AuthContext);
-
-  //router
-  // const navigate = useNavigate();
-
+  
   //local state
   const [loginValue, setLoginValue] = useState({
     userName: "",
@@ -36,7 +33,8 @@ const LoginForm = () => {
       const loginData = await login(loginValue);
 
       if (loginData.success) {
-        //navigate("/dashboard");
+        setAlert({type: 'secondary', message: loginData.message})
+        setTimeout( () => setAlert(null), 5000)
       } else {
         setAlert({type: 'danger', message: loginData.message})
         setTimeout( () => setAlert(null), 5000)
